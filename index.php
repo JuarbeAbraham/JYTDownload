@@ -18,7 +18,7 @@
   <form action="index.php" method="post" action="">
     <div class="form-group">
       <label for="email">Enlace del Video:</label><BR>
-      <input type="text"  class="form-control" name="video_link" placeholder="Ejemplo: https://www.youtube.com/watch?v=7oFKRnCO0oo" value="<?php if(isset($video_link)){echo $video_link;}?>">
+      <input type="text"  class="form-control" name="video_link" placeholder="Ejemplo: https://www.youtube.com/watch?v=C0DPdy98e4c" value="<?php if(isset($video_link)){echo $video_link;}?>">
     </div><BR>
     <button type="submit" class="btn btn-default">DESCARGAR</button>
   </form>
