@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>JYTDownload</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -26,7 +26,7 @@
 	<br>
 
  <!–– TABLA IZQUIERDA ––>
-<div><div class="grid-container" style="float:left;width:45%;">
+<div><div class="grid-container" style="float:left;width:45%;" background-color: red;>
 <?php
     if (isset($_POST['video_link'])) {
         $url = $_POST['video_link'];
@@ -35,9 +35,9 @@
 ?>
 <div class="thumbnail">
     <div id="videoDiv">
-        <iframe id="iframe" style="width: 560px; height: 315px"
+        <center><iframe id="iframe" style="width: 560px; height: 315px"
             src="//www.youtube.com/embed/<?php echo $videoId; ?>"
-            data-autoplay-src="//www.youtube.com/embed/<?php echo $videoId; ?>?autoplay=1"></iframe>
+            data-autoplay-src="//www.youtube.com/embed/<?php echo $videoId; ?>?autoplay=1"></iframe></center>
     </div>
 </div>
 <div id="titleDiv">
@@ -50,7 +50,8 @@
 </div>
 
  <!–– TABLA DERECHA ––>
-<div class="container" style="float:right;width:45%;">
+ 
+<div class="container" style="float:right;width:45%;" style="border: 1px solid red;">
 	<?php
 
 		if(isset($video_link)){
@@ -86,5 +87,32 @@ echo $title = get_youtube_title('PQqudiUdGuo');
 
 	?>
 </div></div></div>
+
+<!–– GOOGLE API ––>
+
+<?php
+	$apikey = 'YOUR_API_KEY';
+    $googleApiUrl = 'https://www.googleapis.com/youtube/v3/videos?id=' . $videoId . '&key=' . $apikey . '&part=snippet';
+    
+	$ch = curl_init();
+    
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_URL, $googleApiUrl);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+    curl_setopt($ch, CURLOPT_VERBOSE, 0);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    $response = curl_exec($ch);
+        
+    curl_close($ch);
+        
+    $data = json_decode($response);
+        
+    $value = json_decode(json_encode($data), true);
+        
+    $title = $value['items'][0]['snippet']['title'];
+    $description = $value['items'][0]['snippet']['description'];
+?>
+
 </body>
 </html>
