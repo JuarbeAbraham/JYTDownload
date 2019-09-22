@@ -1,7 +1,7 @@
-# youtube-downloader
-Script PHP para descargar algunos de los videos de Youtube pasando la URL del video.
+# JYTDownloader
+PHP script to download some of the YouTube videos by passing the video URL.
 # How to run
-Simplemente clone/descargue el repositorio y ejecute index.php desde su host local :)
+Simply clone/download the repository and run index.php from your local host :)
 
-<a href="http://abrahamjuarbe.us/descargar-youtube/" target="_blank">Vista Previa en Vivo</a>
+<a target="_blank" href="https://abrahamjuarbe.us/jytdownload/">Vista Previa en Vivo</a>
 
