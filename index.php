@@ -350,8 +350,8 @@ body{
 <!-- YouTubeDownloader -->
 <ins class="adsbygoogle"
      style="display:block"
-     data-ad-client="ca-pub-9373812112649041"
-     data-ad-slot="9036680368"
+     data-ad-client="ca-pub-YOUR-ADSENSE-CODE"
+     data-ad-slot="YOUR-ADSENSE-CODE"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
 <script>
@@ -376,8 +376,8 @@ body{
 <!-- YouTubeDownloader -->
 <ins class="adsbygoogle"
      style="display:block"
-     data-ad-client="ca-pub-9373812112649041"
-     data-ad-slot="9036680368"
+     data-ad-client="ca-pub-YOUR-ADSENSE-CODE"
+     data-ad-slot="YOUR-ADSENSE-CODE"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
 <script>
