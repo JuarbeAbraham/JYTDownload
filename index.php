@@ -13,7 +13,7 @@ if (isset($_POST['id']) and $_POST['id'] != "") {
 }
 ?>
 
-<!–– TITULO VERDE ––> 
+<!–– CHANNEL NAME START This code is only to show the channel name  ––> 
 <?php
 if(isset($_GET['ytlink'])) {
 	$id=strip_tags($_GET['ytlink']);
@@ -62,7 +62,7 @@ joy2JtozG9FNn2RQbOfuwAiwRjShGKroPjPfuhqDkeML00CPfDva0F7pRtYBEi7cgyT73KtgKvTdvU/J
     } else { $error = "Error Found!"; }
  } 
 ?>
-<!–– TITULO VERDE ––> 
+<!–– CHANNEL NAME END This code is only to show the channel name ––> 
 
 <html>
     <head>
@@ -70,7 +70,8 @@ joy2JtozG9FNn2RQbOfuwAiwRjShGKroPjPfuhqDkeML00CPfDva0F7pRtYBEi7cgyT73KtgKvTdvU/J
 </title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- Load an icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 * {
   box-sizing: border-box;
@@ -254,66 +255,55 @@ body{
   }
 }
 
-<!–– MENU DISENO ––> 
+<!–– MENU DESIGN ––> 
 
-/* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px}
-    
-    /* Set gray background color and 100% height */
-    .middle {
-      padding-top: 20px;
-      background-color: #f1f1f1;
-      height: 100%;
-    }
-    
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
-    }
-    
-    /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
-      .sidenav {
-        height: auto;
-        padding: 15px;
-      }
-      .row.content {height:auto;} 
-    }
+/* Style the navigation bar */
+.navbar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+
+/* Navbar links */
+.navbar a {
+  float: left;
+  text-align: center;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Navbar links on mouse-over */
+.navbar a:hover {
+  background-color: #000;
+}
+
+/* Current/active navbar link */
+.active {
+  background-color: #FF0000;
+}
+
+/* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
 
 </style>
 <body>
     
 <!–– MENU ––> 
-    
-    <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="https://abrahamjuarbe.us" target="_blank">ABRAHAM JUARBE TOLEDO</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a target="_blank" href="https://abrahamjuarbe.us">Inicio</a></li>
-        <li><a target="_blank" href="https://abrahamjuarbe.us/youtube">YouTube</a></li>
-       
-      </ul>
-    </div>
-  </div>
-</nav>
 
-<!–– DESCRIPCION ––> 
+<div class="navbar">
+  <a class="active" target="_blank" href="http://abrahamjuarbe.us"><i class="fa fa-fw fa-home"></i> Inicio</a>
+  <a target="_blank" href="http://abrahamjuarbe.us/youtube"><i class="fa fa-fw fa-globe"></i> YouTube</a>
+  <a target="_blank" href="https://www.youtube.com/c/AbrahamJuarbeToledo"><i class="fa fa-fw fa-youtube"></i> YouTube</a>
+</div>
+
+<!–– DESCRIPTION ––> 
     
 <div class="divTable blueTable">
   <div class="divTableBody">
@@ -334,7 +324,7 @@ body{
             </form>
 </div>
 
-<!–– POP UP ––> 
+<!–– POP UP EMPTY URL ––> 
 
 <script>
   function validatebeforesubmit(thisform) {
@@ -349,11 +339,13 @@ body{
   }   
   </script>
   
-<!–– ANUNCIO 1 ––> 
+<!–– GOOGLE AD 1 ––> 
 
 <center id="ireaf">
   <div class="row">
     <div class="cell" id="ilvhi">
+        <div align="center"><!–– BORRAR ––>
+        Anuncio #1
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- YouTubeDownloader -->
 <ins class="adsbygoogle"
@@ -365,6 +357,7 @@ body{
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+</div><!–– BORRAR ––>
     </div>
     
 <!–– VIDEO ––> 
@@ -375,9 +368,10 @@ body{
             data-autoplay-src="//www.youtube.com/embed/<?php echo $id; ?>?autoplay=1"></iframe>
     </div>
     
-<!–– ANUNCIO 2 ––> 
+<!–– GOOGLE AD 2 ––> 
 
     <div class="cell" id="iqf6s">
+        Anuncio #2
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- YouTubeDownloader -->
 <ins class="adsbygoogle"
@@ -393,11 +387,11 @@ body{
   </div>
 </center>
 
-<!–– DESCARGAS ––> 
+<!–– DOWNLOAD BOX ––> 
 
 <center>
 <?php if (isset($arr[0])) { ?>
-            <div style='width: 700px; background-color: #FF0000;height:auto; border-radius: 4px;'  align="center";>
+            <div style='width: 900px; background-color: #FF0000;height:auto; border-radius: 4px;'  align="center";>
                 <div style='text-align: center;margin-top: 10px;'><h3 style='padding-top: 10px;'><?= $title ?></h3></div>
                 <div style='padding: 10px;display: inline-block;text-align: center'>
                     <?php
@@ -422,11 +416,11 @@ body{
                         }
                         ?>
                         <a href='<?= $url ?>?title= <?= $title ?>' target="_blank" style='text-decoration: none;display: inline-block;'>
-                            <div style='background-color: #fff;min-height: 80px;width:200px;border-radius: 4px;float: left;margin: 10px;color: #537625;text-align: center;padding: 10px;'>
+                            <div style='background-color: #fff;min-height: 80px;width:250px;border-radius: 4px;float: left;margin: 10px;color: #537625;text-align: center;padding: 10px;'>
                                 <h4><?= $title . " " . $quality . " / " . $extension ?></h4>
                                 <img src='<?= $icon ?>' alt='Icon'/>
                                 
-                                <!–– TITULO VERDE ––> 
+                                <!–– CHANNEL NAME START This code is only to show the channel name ––> 
                                 
                                 <?php
 if(!empty($error)) { ?>
@@ -451,7 +445,7 @@ echo '<br /><div class="row" style="background:#fff">
       </div>';
 }
  ?>
-                                <!–– TITULO VERDE ––> 
+                                <!–– CHANNEL NAME END This code is only to show the channel name ––> 
                                 
                             </div>
                             
@@ -473,5 +467,30 @@ echo '<br /><div class="row" style="background:#fff">
                 document.getElementById("video_url").value = "";
             }
         </script></center>
- </body>
+ <!–– DISQUS ––>
+        <script id="dsq-count-scr" src="//abrahamjuarbe-us.disqus.com/count.js" async></script>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://abrahamjuarbe-us.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+<!–– DISQUS ––> 
+        </body>
 </html>
