@@ -7,8 +7,9 @@ if (isset($_POST['id']) and $_POST['id'] != "") {
     $id = $values[1];
     if ($id != "") {
         $data = file_get_contents("https://www.youtube.com/get_video_info?video_id={$id}");
-        parse_str($data);
-        $arr = explode(",", $url_encoded_fmt_stream_map);
+        parse_str($data, $datos);
+        $player_response = json_decode($datos['player_response']);
+        $arr = explode(",", $datos['url_encoded_fmt_stream_map']);
     }
 }
 ?>
@@ -36,7 +37,7 @@ if(!empty($id)) {
 	
 	 // FETCHING DATA FROM SERVER
 	 $jsonData = @file_get_contents("http://api.youtube6download.top/api/?id=$id");
-	 $links = json_decode($jsonData,TRUE);
+	 $links = json_decode($jsonData, true);
     } else { $error = "Error Found!"; }
  } 
 ?>
@@ -342,8 +343,8 @@ body{
     
     <div class="cell">
       <iframe id="iframe" style="width: 560px; height: 315px"
-            src="//www.youtube.com/embed/<?php echo $id ?>"
-            data-autoplay-src="//www.youtube.com/embed/<?php echo $id; ?>?autoplay=1"></iframe>
+            src="//www.youtube.com/embed/<?= htmlspecialchars($id) ?>"
+            data-autoplay-src="//www.youtube.com/embed/<?= htmlspecialchars($id) ?>?autoplay=1"></iframe>
     </div>
     
 <!–– GOOGLE AD 2 ––> 
@@ -370,12 +371,13 @@ body{
 <center>
 <?php if (isset($arr[0])) { ?>
             <div style='width: 900px; background-color: #FF0000;height:auto; border-radius: 4px;'  align="center";>
-                <div style='text-align: center;margin-top: 10px;'><h3 style='padding-top: 10px;'><?= $title ?></h3></div>
+                <div style='text-align: center;margin-top: 10px;'><h3 style='padding-top: 10px;'><?= htmlspecialchars($player_response->videoDetails->title) ?></h3></div>
+                <div style='text-align: center;margin-top: 10px;'><img src='https://i.ytimg.com/vi/<?= htmlspecialchars($id) ?>/mqdefault.jpg' alt='Icon'/></div>
                 <div style='padding: 10px;display: inline-block;text-align: center'>
                     <?php
                     foreach ($arr as $item) {
-                        parse_str($item);
-                        $temp = explode(";", $type);
+                        parse_str($item, $elemento);
+                        $temp = explode(";", $elemento['type']);
                         $extensions = explode("/", $temp[0]);
                         $extension = $extensions[1];
                         switch ($extension) {
@@ -393,15 +395,15 @@ body{
                                 break;
                         }
                         ?>
-                        <a href='<?= $url ?>?title= <?= $title ?>' target="_blank" style='text-decoration: none;display: inline-block;'>
+                        <a href="<?= htmlspecialchars($elemento['url']) ?>" target="_blank" style='text-decoration: none;display: inline-block;'>
                             <div style='background-color: #fff;min-height: 80px;width:250px;border-radius: 4px;float: left;margin: 10px;color: #537625;text-align: center;padding: 10px;'>
-                                <h4><?= $title . " " . $quality . " / " . $extension ?></h4>
-                                <img src='<?= $icon ?>' alt='Icon'/>
+                                <h4><?= htmlspecialchars($player_response->videoDetails->title . " " . $elemento['quality'] . " / " . $extension) ?></h4>
+                                <img src='<?= htmlspecialchars($icon) ?>' alt='Icon'/>
                                 
                                 <!–– CHANNEL NAME START This code is only to show the channel name ––> 
                                 
                                 <?php
-if(!empty($error)) { ?>
+if(!empty($elemento['error'])) { ?>
 
 <div><br />
 <div class="alert alert-warning">
