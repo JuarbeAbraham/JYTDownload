@@ -13,36 +13,6 @@ if (isset($_POST['id']) and $_POST['id'] != "") {
     }
 }
 ?>
-
-<!–– CHANNEL NAME START This code is only to show the channel name  ––> 
-<?php
-if(isset($_GET['ytlink'])) {
-	$id=strip_tags($_GET['ytlink']);
-	$id=trim($id);
-}
-if(!empty($id)) {
-	if (strpos($id, 'youtube.com') !== FALSE)
-	{
-   	$query = parse_url($id, PHP_URL_QUERY);
-   	parse_str($query, $params);
-	$id = $params['v'];
-	} 
-	if (strpos($id, 'youtu.be') !== FALSE)
-	{
-    	$ex = explode('/',$id);
-    	$id = end($ex);
-	} 
-
- if(isset($type)) {
-	
-	 // FETCHING DATA FROM SERVER
-	 $jsonData = @file_get_contents("http://api.youtube6download.top/api/?id=$id");
-	 $links = json_decode($jsonData, true);
-    } else { $error = "Error Found!"; }
- } 
-?>
-<!–– CHANNEL NAME END This code is only to show the channel name ––> 
-
 <html>
     <head>
 <title>Descargar Videos de Youtube
@@ -233,16 +203,13 @@ body{
     flex-wrap:wrap;
   }
 }
-
 <!–– MENU DESIGN ––> 
-
 /* Style the navigation bar */
 .navbar {
   width: 100%;
   background-color: #555;
   overflow: auto;
 }
-
 /* Navbar links */
 .navbar a {
   float: left;
@@ -252,17 +219,14 @@ body{
   text-decoration: none;
   font-size: 17px;
 }
-
 /* Navbar links on mouse-over */
 .navbar a:hover {
   background-color: #000;
 }
-
 /* Current/active navbar link */
 .active {
   background-color: #FF0000;
 }
-
 /* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
 @media screen and (max-width: 500px) {
   .navbar a {
@@ -270,7 +234,6 @@ body{
     display: block;
   }
 }
-
 </style>
 <body>
     
@@ -323,20 +286,7 @@ body{
 <center id="ireaf">
   <div class="row">
     <div class="cell" id="ilvhi">
-        <div align="center"><!–– BORRAR ––>
-        Anuncio #1
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- YouTubeDownloader -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-YOUR-ADSENSE-CODE"
-     data-ad-slot="YOUR-ADSENSE-CODE"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div><!–– BORRAR ––>
+    
     </div>
     
 <!–– VIDEO ––> 
@@ -350,18 +300,7 @@ body{
 <!–– GOOGLE AD 2 ––> 
 
     <div class="cell" id="iqf6s">
-        Anuncio #2
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- YouTubeDownloader -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-YOUR-ADSENSE-CODE"
-     data-ad-slot="YOUR-ADSENSE-CODE"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+       
     </div>
   </div>
 </center>
@@ -371,9 +310,12 @@ body{
 <center>
 <?php if (isset($arr[0])) { ?>
             <div style='width: 900px; background-color: #FF0000;height:auto; border-radius: 4px;'  align="center";>
-                <div style='text-align: center;margin-top: 10px;'><h3 style='padding-top: 10px;'><?= htmlspecialchars($player_response->videoDetails->title) ?></h3></div>
+                <div style='text-align: center;margin-top: 10px;'><h3 style='padding-top: 10px;color: white;'><?= htmlspecialchars($player_response->videoDetails->title) ?></h3></div>
                 <div style='text-align: center;margin-top: 10px;'><img src='https://i.ytimg.com/vi/<?= htmlspecialchars($id) ?>/mqdefault.jpg' alt='Icon'/></div>
                 <div style='padding: 10px;display: inline-block;text-align: center'>
+                    
+<!–– INNECESARIO START ––>
+                    
                     <?php
                     foreach ($arr as $item) {
                         parse_str($item, $elemento);
@@ -395,38 +337,13 @@ body{
                                 break;
                         }
                         ?>
+
+<!–– INNECESARIO END ––>
+
                         <a href="<?= htmlspecialchars($elemento['url']) ?>" target="_blank" style='text-decoration: none;display: inline-block;'>
                             <div style='background-color: #fff;min-height: 80px;width:250px;border-radius: 4px;float: left;margin: 10px;color: #537625;text-align: center;padding: 10px;'>
-                                <h4><?= htmlspecialchars($player_response->videoDetails->title . " " . $elemento['quality'] . " / " . $extension) ?></h4>
-                                <img src='<?= htmlspecialchars($icon) ?>' alt='Icon'/>
-                                
-                                <!–– CHANNEL NAME START This code is only to show the channel name ––> 
-                                
-                                <?php
-if(!empty($elemento['error'])) { ?>
-
-<div><br />
-<div class="alert alert-warning">
-  <strong>Warning!</strong> Something went wrong, Possible reasons!</div>
-  <br>
-  <ul>
-	<li>Check Youtube video URL.</li>
-	<li>Maybe That video have been deleted.</li>
-	<li>Maybe You have entered something else except URL.</li>
-  </ul>
-</div>
-<div>
-<?php } else if(!empty($links)) {
-echo '<br><h4>'.$ytinfo['title'].'</h4>
-      <p><span class="label label-primary pull-center">'.$ytinfo['author_name'].'</span></p>';
-} else {
-echo '<br /><div class="row" style="background:#fff">
-	  <div class="col-sm-4">Any Text/ Paragraph or Advertisement that you want.</div>
-      </div>';
-}
- ?>
-                                <!–– CHANNEL NAME END This code is only to show the channel name ––> 
-                                
+                                <p><span class="label label-primary pull-center">DESCARGAR</span></p>
+                                <h4><?= htmlspecialchars($player_response->videoDetails->title . " • " . $elemento['quality'] . " • " . $extension) ?></h4>
                             </div>
                             
                         </a>
@@ -452,7 +369,6 @@ echo '<br /><div class="row" style="background:#fff">
 
 <div id="disqus_thread"></div>
 <script>
-
 /**
 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
